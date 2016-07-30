@@ -14,10 +14,21 @@
  * limitations under the License.
  */
 
+buildscript {
+    ext.kotlin_version = '1.0.0'
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
-    buildToolsVersion "23.0.3"
+    buildToolsVersion "23.0.1"
     compileSdkVersion 23
 
     dataBinding {
@@ -78,4 +89,7 @@ dependencies {
     }
 
     androidTestCompile "org.hamcrest:hamcrest-core:${hamcrestVersion}"
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile 'org.jetbrains.anko:anko-sdk15:0.8.2'
 }
